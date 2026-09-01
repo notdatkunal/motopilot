@@ -6,6 +6,13 @@
 [![Status](https://img.shields.io/badge/status-active%20development-orange.svg)]()
 [![Platform](https://img.shields.io/badge/platform-Mobile%20%7C%20BLE%20Mesh%20%7C%20IoT-green.svg)]()
 
+
+[![Views](https://hits.sh/github.com/notdatkunal/motopilot.svg?view=today-total&style=flat-square&label=Views&color=007ec6)](https://hits.sh/github.com/notdatkunal/motopilot/)
+[![GitHub Stars](https://img.shields.io/github/stars/notdatkunal/motopilot?style=flat-square&logo=github&color=gold)](https://github.com/notdatkunal/motopilot/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/notdatkunal/motopilot?style=flat-square&logo=github)](https://github.com/notdatkunal/motopilot/network)
+[![Commit Activity](https://img.shields.io/github/commit-activity/m/notdatkunal/motopilot?style=flat-square&logo=git)](https://github.com/notdatkunal/motopilot/pulse)
+[![Last Commit](https://img.shields.io/github/last-commit/notdatkunal/motopilot?style=flat-square)](https://github.com/notdatkunal/motopilot/commits/main)
+
 ---
 
 ## 📌 Overview
@@ -132,3 +139,14 @@ With a single app connected to your helmet Bluetooth intercom and handlebar IoT 
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+
+---
+
+## 📈 Repository Telemetry & Star History
+
+<div align="center">
+  <a href="https://star-history.com/#notdatkunal/motopilot&Date">
+    <img src="https://api.star-history.com/svg?repos=notdatkunal/motopilot&type=Date" alt="Star History Chart" width="700" />
+  </a>
+</div>
