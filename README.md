@@ -1,91 +1,131 @@
 # 🏍️ MotoPilot
 
-> **Intelligent AI Co-Pilot, Rider Mesh Network & Healthcare Telemetry System for Smart Helmets & Bikers**
+> **The All-in-One Motorcycle Operating Platform: AI Voice Co-Pilot, Rider Mesh Network, Healthcare Telemetry & Real-World Gamification (MotoQuest)**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-active%20development-orange.svg)]()
-[![Platform](https://img.shields.io/badge/platform-Mobile%20%7C%20IoT%20%7C%20BLE-green.svg)]()
+[![Platform](https://img.shields.io/badge/platform-Mobile%20%7C%20BLE%20Mesh%20%7C%20IoT-green.svg)]()
 
 ---
 
 ## 📌 Overview
 
-**MotoPilot** is an advanced co-pilot platform engineered specifically for motorcycle riders. It bridges hands-free AI voice intelligence, low-latency rider mesh communication, road violation and hazard reporting, and vital **real-time healthcare and biometric telemetry** into a unified ecosystem.
+**MotoPilot** is the unified intelligence, safety, and social platform purpose-built for motorcyclists. It bridges hands-free voice AI, low-latency rider mesh communication, road hazard reporting, and vital **real-time healthcare telemetry** with **MotoQuest** — an audio-first, real-world gamification layer (*Pokemon GO meets Subway Surfers for Bikers*).
 
-Whether you are commuting daily or embarking on cross-country group tours, MotoPilot acts as your **Jarvis for your bike and helmet**, keeping you connected, alert, and safe.
+With a single app connected to your helmet Bluetooth intercom and handlebar IoT controller, MotoPilot acts as your **co-pilot, safety guardian, and gaming companion** on every ride.
+
+---
+
+## 🌟 The 4 Core Pillars of MotoPilot
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                              MotoPilot                                 │
+├───────────────────┬───────────────────┬────────────────────────────────┤
+│   🎙️ AI CO-PILOT  │   🩺 HEALTHCARE   │       🚨 SAFETY & CIVIC        │
+│    ("Jarvis")     │    TELEMETRY      │            REPORTING           │
+│                   │                   │                                │
+│ • Voice commands  │ • Blood glucose   │ • Instant video bookmarking    │
+│ • Wind-noise mic  │ • Blood pressure  │ • License plate recognition    │
+│ • Turn cues       │ • Fatigue / HRV   │ • Direct traffic portal export │
+│ • Weather alerts  │ • Crash eCall SOS │ • Emergency beacon dispatch    │
+├───────────────────┴───────────────────┴────────────────────────────────┤
+│                     🎮 MOTOQUEST & OFFLINE MESH                        │
+│                                                                        │
+│ • Real-world "Subway Surfers": Pothole dodging & smooth line scoring   │
+│ • "Pokémon GO" territory exploration, curve leaderboards & apex ranks  │
+│ • 100% Offline P2P Mesh (BitChat-style pack intercom & leaderboard)   │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## 🚀 Key Features
 
 ### 🎙️ 1. AI Voice Co-Pilot ("Jarvis for Bikers")
-- **Wind-Noise Tolerant Voice Interface:** Built with wake-word detection and noise cancellation algorithms tuned for high-speed helmet environments.
-- **Hands-Free Controls:** Manage navigation, music playback, calls, telemetry queries, and group comms using voice commands alone.
-- **Contextual Audio Cues:** Proactive alerts for sharp blind turns, weather shifts, potholes, and speed traps.
+- **Wind-Noise Resistant Voice Pipeline:** Optimized for helmet microphones at highway speeds with wake-word detection and edge processing.
+- **Hands-Free Operation:** Control navigation, audio, group comms, and bike telemetry purely via voice.
+- **Contextual Audio Cues:** Proactive alerts for blind switchbacks, sudden weather changes, potholes, and speed traps.
 
-### 📡 2. Rider Mesh Intercom & Group Hub
-- **Dynamic Peer-to-Peer Mesh:** Connect with fellow pack riders via BLE / Wi-Fi Direct / WebRTC mesh networks without relying solely on cellular reception.
-- **Live Group Radar:** Real-time proximity radar and rider map overlay showing group formation, distance gaps, and tail-end warnings.
+### 🎮 2. MotoQuest: Screen-Free Real-World Gamification
+- **Audio-First Gameplay:** 100% eyes-on-the-road experience with 3D spatial helmet audio cues.
+- **Real-Life Obstacle Dodging:** IMU accelerometer measures smooth swerves around potholes vs. suspension shocks. Dodging cleanly = **+50 XP**; reporting new potholes logs civic bounty rewards!
+- **Territory Conquest & Apex Leaderboards:** Claim scenic passes and compete for smoothest cornering and lean angle consistency.
 
-### 🚨 3. Road Hazard & Highway Violation Reporting
-- **Voice / One-Touch Video Bookmarking:** Instant capture from handlebar or helmet dashcams with automated GPS timestamping and speed overlays.
-- **Automated License Plate & Hazard Recognition:** On-device or cloud-assisted edge inference for reporting road violations and critical road defects.
-- **Direct Citizen Portal Integration:** Formatted exports compatible with traffic enforcement and citizen reporting portals.
+### 📡 3. 100% Offline Rider Mesh Network (Biker BitChat)
+- **Zero Cellular Dependency:** BLE 5.0 and Wi-Fi Direct gossip mesh keeps pack riders connected even in remote valleys.
+- **Offline Mesh Intercom & Presence:** Voice comms, proximity radar, and decentralized CRDT-based scoreboards sync seamlessly across bikes.
 
-### 🩺 4. Healthcare & Biometric Telemetry Integration
-- **Continuous Blood Glucose (CGM) Monitoring:** Detects hypoglycemia and sudden energy dips; triggers voice alerts to take a rest break.
-- **Blood Pressure & Vascular Load:** Estimates real-time cardiovascular strain and tension.
-- **Fatigue & Drowsiness Detection:** Monitors Heart Rate Variability (HRV) and micro-movements to detect microsleeps before accidents happen.
-- **Emergency eCall with Live Vitals Payload:** In the event of a crash, automatically dispatches GPS location alongside critical biometric data (heart rate, SpO2, and consciousness indicator) to emergency services and contacts.
+### 🩺 4. Healthcare & Biometric Telemetry
+- **Continuous Glucose (CGM) Integration:** Voice warnings for sudden hypoglycemia and energy dips (*"Warning: Glucose dipping below 70 mg/dL"*).
+- **Fatigue & Drowsiness Alert:** Analyzes Heart Rate Variability (HRV) and micro-movements to detect microsleeps before accidents happen.
+- **Crash eCall SOS with Live Vitals Payload:** Dispatches exact GPS coordinates alongside live pulse, SpO2, and consciousness status to first responders upon impact.
 
-### 🏍️ 5. Motorcycle Hardware & Telemetry (IoT / OBD-II)
-- **Lean Angle & G-Force Tracking:** 6-axis IMU tracking for cornering dynamics.
-- **Tire Pressure & Temp (TPMS):** Real-time warnings for sudden pressure drops or overheating tires.
-- **CAN Bus / OBD-II Engine Metrics:** RPM, engine temperature, battery voltage, and fuel range.
+### 🚨 5. Road Hazard & Highway Violation Reporting
+- **1-Click / Voice Video Capture:** Instant rolling-buffer dashcam bookmark with GPS timestamp and speed overlays.
+- **Automated Citizen Portal Export:** Generates formatted violation reports ready for traffic enforcement submission.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-                                  ┌────────────────────────┐
-                                  │   Bluetooth Headset    │
-                                  │    (Helmet Mic/Spk)    │
-                                  └───────────┬────────────┘
-                                              │ Audio Stream
-                                              ▼
-┌─────────────────────────┐       ┌────────────────────────┐       ┌─────────────────────────┐
-│   Hardware & Bike IoT   │       │                        │       │  Healthcare Biometrics  │
-│ • OBD-II / CAN Bus      ├──────►│    MotoPilot Engine    │◄──────┤ • Blood Pressure        │
-│ • TPMS Sensors          │  BLE  │      (Mobile App)      │  BLE  │ • Blood Glucose (CGM)   │
-│ • 6-Axis IMU (Lean)     │       │                        │       │ • Heart Rate & HRV      │
-│ • Dashcam / Action Cam  │       └───────────┬────────────┘       │ • SpO2 & Skin Temp      │
-└─────────────────────────┘                   │                    └─────────────────────────┘
-                                              │
-                        ┌─────────────────────┴─────────────────────┐
-                        ▼                                           ▼
-             ┌─────────────────────┐                     ┌─────────────────────┐
-             │  Rider Mesh Network │                     │ Cloud AI & Services │
-             │  (P2P Group Comms)  │                     │ (Violations, SOS)   │
-             └─────────────────────┘                     └─────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                 Rider Input & Sensor Layer                  │
+│  ┌────────────────────────┐    ┌─────────────────────────┐  │
+│  │ Handlebar IoT Pod / PTT├─┐  │ Biometric Wearable (BLE)│  │
+│  │ • Push-to-Talk Button  │ │  │ • Optical BP & Glucose  │  │
+│  │ • 6-Axis IMU (Lean)    │ │  │ • Heart Rate & HRV      │  │
+│  └────────────────────────┘ │  └───────────┬─────────────┘  │
+│    ┌────────────────────────┘              │                │
+│    ▼                                       ▼                │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │ Helmet Bluetooth Headset (Audio-First In / Out)       │  │
+│  └──────────────────────────┬────────────────────────────┘  │
+└─────────────────────────────┼───────────────────────────────┘
+                              │ BLE / Audio Stream
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     MotoPilot Core Engine                   │
+│                     (Mobile Background App)                 │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │ AI Voice Co-Pilot Pipeline & Wake-Word Engine         │  │
+│  ├───────────────────────────────────────────────────────┤  │
+│  │ MotoQuest Game Engine: Pothole Evaluator & Scoring    │  │
+│  ├───────────────────────────────────────────────────────┤  │
+│  │ Biometric Telemetry & Fatigue / Crash Monitor         │  │
+│  ├───────────────────────────────────────────────────────┤  │
+│  │ Offline P2P Mesh Engine (BitChat / CRDT Gossip)       │  │
+│  └───────────────────────────────────────────────────────┘  │
+└─────────────────────────────┬───────────────────────────────┘
+                              │
+            ┌─────────────────┴─────────────────┐
+            ▼                                   ▼
+┌─────────────────────────────┐   ┌─────────────────────────────┐
+│ Offline Pack Mesh Network   │   │ Cloud Hub & Civic Sync      │
+│ (BLE / Wi-Fi Direct)        │   │ (Syncs when online)         │
+│ • Intercom & Hazard Gossip  │   │ • Global Leaderboards       │
+│ • Pack Proximity Radar      │   │ • Traffic Violations & SOS  │
+└─────────────────────────────┘   └─────────────────────────────┘
 ```
 
 ---
 
 ## 📚 Documentation
 
-- [Telemetry & Biometric Architecture](docs/TELEMETRY_ARCHITECTURE.md)
+- [Healthcare & Biometric Telemetry Architecture](docs/TELEMETRY_ARCHITECTURE.md)
+- [MotoQuest Gamification, Pothole Scoring & Offline Mesh](docs/MOTOQUEST_GAMIFICATION_AND_MESH.md)
 - [Hardware Specifications & Sensor Protocol](docs/HARDWARE_SPECS.md)
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Mobile Application:** React Native / Flutter (Cross-platform iOS & Android)
-- **Hardware Firmware:** ESP32 / Arduino (C++ / Rust Embedded)
+- **Mobile Application:** React Native / Flutter (Native Background Sensor Processing)
+- **Mesh Networking:** BLE 5.0 Mesh & Wi-Fi Aware P2P Protocols (CRDT Decentralized Sync)
+- **Hardware Firmware:** ESP32-S3 / C3 (C++ / Rust Embedded)
 - **Communications:** Bluetooth Low Energy (BLE 5.2), WebRTC, MQTT
-- **AI & Voice Services:** Edge Speech-to-Text, LLM Voice Assistant Pipeline, OpenCV / YOLO for visual violation detection
-- **Backend Services:** Node.js / FastAPI, PostgreSQL + TimescaleDB (Telemetry Timeseries)
+- **AI & Audio Engine:** Edge Speech-to-Text, LLM Voice Pipeline, 3D Spatial Audio
 
 ---
 
