@@ -146,25 +146,25 @@ This project is licensed under the MIT License.
 
 ---
 
-## ⚡ Benchmarks & Load Testing (\`wrk\`)
+## ⚡ Benchmarks & Load Testing (`wrk`)
 
 High-frequency telemetry ingestion benchmark for **MotoPilot Telemetry Ingestion Gateway** processing incoming IMU, TPMS, and biometric packets under **1,000 concurrent vehicle streams**:
 
-\`\`\`bash
+```bash
 wrk -t16 -c1000 -d30s -s scripts/telemetry_batch.lua https://api.motopilot.app/api/v1/telemetry/packet
-\`\`\`
+```
 
-### 📊 Benchmark Results (\`POST /api/v1/telemetry/packet\`)
-- **Throughput:** \`28,412.80 requests/sec\` (Total: 852,384 packets in 30s)
-- **TimescaleDB Ingestion Rate:** \`~113,600 sensor metric points/sec\`
-- **Error Rate:** \`0.00%\` (0 socket drops / 0 HTTP 5xx)
+### 📊 Benchmark Results (`POST /api/v1/telemetry/packet`)
+- **Throughput:** `28,412.80 requests/sec` (Total: 852,384 packets in 30s)
+- **TimescaleDB Ingestion Rate:** `~113,600 sensor metric points/sec`
+- **Error Rate:** `0.00%` (0 socket drops / 0 HTTP 5xx)
 
 | Metric | Latency (ms) | Target SLA | Status |
 | :--- | :---: | :---: | :---: |
-| **p50 (Median)** | \`8.15 ms\` | < 20 ms | ✅ PASSED |
-| **p90** | \`19.40 ms\` | < 40 ms | ✅ PASSED |
-| **p99** | \`31.85 ms\` | < 60 ms | ✅ PASSED |
-| **Max** | \`52.30 ms\` | < 100 ms | ✅ PASSED |
+| **p50 (Median)** | `8.15 ms` | < 20 ms | ✅ PASSED |
+| **p90** | `19.40 ms` | < 40 ms | ✅ PASSED |
+| **p99** | `31.85 ms` | < 60 ms | ✅ PASSED |
+| **Max** | `52.30 ms` | < 100 ms | ✅ PASSED |
 
 ## 📈 Repository Telemetry & Star History
 
