@@ -173,3 +173,16 @@ wrk -t16 -c1000 -d30s -s scripts/telemetry_batch.lua https://api.motopilot.app/a
     <img src="https://api.star-history.com/svg?repos=notdatkunal/motopilot&type=Date" alt="Star History Chart" width="700" />
   </a>
 </div>
+
+
+## Planning Phase & Roadmap
+
+### Open Source Vision
+MotoPilot targets a highly passionate enthusiast niche at the intersection of DIY electronics, AI, and motorcycling. Our roadmap focuses on providing excellent documentation, wiring diagrams, and a clear bill of materials (BOM) to make it a staple project in the maker and IoT communities.
+
+### Compliance & Regulatory (India)
+To make MotoPilot fully functional and legally compliant in the Indian market:
+* **WPC ETA & BIS Certification:** The hardware (ESP32, BLE 5.2) will undergo Equipment Type Approval (ETA) from the Wireless Planning and Coordination (WPC) Wing and pass BIS safety standards.
+* **Telecom & eCall (TRAI/AIS-140):** Crash eCall functionalities utilizing cellular networks will be designed to comply with TRAI regulations and relevant automotive tracking standards.
+* **DPDP Act & CERT-In:** All telemetry data will follow strict data minimization and 180-day secure logging requirements.
+
