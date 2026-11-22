@@ -1,3 +1,5 @@
+> **Status and safety notice:** This is legacy concept material, not a verified reference design. Pin assignments, component compatibility, power design, electrical protection, vehicle-bus access and mechanical suitability must be reviewed and tested before construction or connection to a motorcycle. Do not connect an unprotected development board directly to motorcycle power. The current product direction is software-first; this hardware is optional.
+
 # 🛠️ MotoPilot Hardware Specifications & Sensor Protocol
 
 ## 1. Hardware Module Overview
