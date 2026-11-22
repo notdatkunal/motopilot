@@ -1,3 +1,5 @@
+> **Status and safety notice:** This is a concept document. Scoring thresholds, sensor assumptions, mesh behaviour and riding interaction claims are unvalidated. Do not encourage riders to perform swerves, chase scores or interact with a screen while moving. Any gamification must not reward risky riding or unsafe manoeuvres.
+
 # 🎮 MotoQuest: Gamification, Pothole Scoring & Offline Mesh Protocol
 
 ## 1. Safety-First Audio Gaming Mechanics

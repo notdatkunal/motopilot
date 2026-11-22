@@ -1,3 +1,5 @@
+> **Status and medical-safety notice:** This is legacy exploratory material, not a validated medical or crash-detection specification. The listed sensor capabilities, thresholds, inferences and emergency payload fields are not verified and must not be treated as medical advice or production-ready detection logic. Ordinary phone/watch sensors and optical PPG do not provide medical-grade blood glucose or blood-pressure measurements. Do not claim automatic crash detection or emergency dispatch without validated testing and platform/legal review.
+
 # 🩺 MotoPilot Telemetry & Healthcare Biometrics Architecture
 
 ## 1. Executive Summary

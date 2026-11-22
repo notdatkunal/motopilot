@@ -1,188 +1,115 @@
-# 🏍️ MotoPilot
+# MotoPilot
 
-> **The All-in-One Motorcycle Operating Platform: AI Voice Co-Pilot, Rider Mesh Network, Healthcare Telemetry & Real-World Gamification (MotoQuest)**
+> **An open-source, software-first motorcycle companion platform for Android and Wear OS, with optional open hardware extensions and a third-party developer ecosystem.**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-active%20development-orange.svg)]()
-[![Platform](https://img.shields.io/badge/platform-Mobile%20%7C%20BLE%20Mesh%20%7C%20IoT-green.svg)]()
+[![Status](https://img.shields.io/badge/status-planning%20%2F%20early%20development-orange.svg)]()
+[![Platforms](https://img.shields.io/badge/platform-Android%20%7C%20Wear%20OS-green.svg)]()
 
+MotoPilot is designed to make useful motorcycle software available using devices riders already own. An Android phone is the primary platform; a Wear OS watch is an optional companion. External MotoPilot or third-party hardware can add sensors, physical controls and connectivity, but users should not need to build or buy hardware to use the core application.
 
-[![Views](https://hits.sh/github.com/notdatkunal/motopilot.svg?view=today-total&style=flat-square&label=Views&color=007ec6)](https://hits.sh/github.com/notdatkunal/motopilot/)
-[![GitHub Stars](https://img.shields.io/github/stars/notdatkunal/motopilot?style=flat-square&logo=github&color=gold)](https://github.com/notdatkunal/motopilot/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/notdatkunal/motopilot?style=flat-square&logo=github)](https://github.com/notdatkunal/motopilot/network)
-[![Commit Activity](https://img.shields.io/github/commit-activity/m/notdatkunal/motopilot?style=flat-square&logo=git)](https://github.com/notdatkunal/motopilot/pulse)
-[![Last Commit](https://img.shields.io/github/last-commit/notdatkunal/motopilot?style=flat-square)](https://github.com/notdatkunal/motopilot/commits/main)
+**Project status:** This repository currently contains product concepts and architecture specifications. The documents describe a target design, not a claim that all listed applications, firmware, protocols or features are implemented. See [implementation status](#implementation-status).
 
----
+## Product principles
 
-## 📌 Overview
+- **Software first; hardware optional.** Start with an Android phone. Add Wear OS or external hardware when useful.
+- **Local first; offline first.** Core ride features should work without a MotoPilot account or mandatory cloud service.
+- **Privacy by default.** No advertising/tracking SDKs or automatic telemetry uploads are intended. Sensor processing still occurs locally when a feature is enabled.
+- **Open ecosystem.** Publish protocols, SDKs, hardware sources and developer documentation for independent clients and devices.
+- **Rider attention first.** Prefer voice, haptics and tactile controls. Avoid complex screen interaction while moving.
+- **Safety claims must be earned.** Emergency detection is best-effort until validated; no feature guarantees crash detection or emergency dispatch.
 
-**MotoPilot** is the unified intelligence, safety, and social platform purpose-built for motorcyclists. It bridges hands-free voice AI, low-latency rider mesh communication, road hazard reporting, and vital **real-time healthcare telemetry** with **MotoQuest** — an audio-first, real-world gamification layer (*Pokemon GO meets Subway Surfers for Bikers*).
+## Applications and extensions
 
-With a single app connected to your helmet Bluetooth intercom and handlebar IoT controller, MotoPilot acts as your **co-pilot, safety guardian, and gaming companion** on every ride.
+| Component | Role | Required? |
+|---|---|---|
+| Android app | Primary cockpit, navigation, ride recording, voice, local settings and optional emergency detection | Yes for initial software product |
+| Wear OS app | Glanceable cues, haptics, quick controls and emergency alert companion | No |
+| Android launcher | Optional home-screen integration | No |
+| Dedicated Android display | Larger cockpit profile using Android application | No |
+| MotoPilot reference hardware | Optional sensors and physical controls | No |
+| Third-party clients/devices | Independent integrations using published APIs and protocol | No |
 
----
+## Planned capabilities
 
-## 🌟 The 4 Core Pillars of MotoPilot
+- **Navigation:** OpenStreetMap-based navigation with offline map support under evaluation.
+- **Ride recording:** Local GPS-based ride sessions and history.
+- **Voice and interaction:** Voice, tactile handlebar controls, touch and calibrated gestures, with interaction constrained by riding context.
+- **Emergency response:** Optional phone-sensor-based possible-crash detection, cancellation countdown and user-configured contact notification. Not a certified crash detector.
+- **Wear OS companion:** Navigation cues, haptics, ride status and emergency countdown mirroring.
+- **Mini-apps:** Hybrid native and sandboxed web extension model, planned after SDK and permission system stabilize.
+- **Optional hardware:** Modular ESP32-S3 reference-device candidate, external IMU/GNSS and handlebar controls.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                              MotoPilot                                 │
-├───────────────────┬───────────────────┬────────────────────────────────┤
-│   🎙️ AI CO-PILOT  │   🩺 HEALTHCARE   │       🚨 SAFETY & CIVIC        │
-│    ("Jarvis")     │    TELEMETRY      │            REPORTING           │
-│                   │                   │                                │
-│ • Voice commands  │ • Blood glucose   │ • Instant video bookmarking    │
-│ • Wind-noise mic  │ • Blood pressure  │ • License plate recognition    │
-│ • Turn cues       │ • Fatigue / HRV   │ • Direct traffic portal export │
-│ • Weather alerts  │ • Crash eCall SOS │ • Emergency beacon dispatch    │
-├───────────────────┴───────────────────┴────────────────────────────────┤
-│                     🎮 MOTOQUEST & OFFLINE MESH                        │
-│                                                                        │
-│ • Real-world "Subway Surfers": Pothole dodging & smooth line scoring   │
-│ • "Pokémon GO" territory exploration, curve leaderboards & apex ranks  │
-│ • 100% Offline P2P Mesh (BitChat-style pack intercom & leaderboard)   │
-└────────────────────────────────────────────────────────────────────────┘
-```
+All items above are planned unless explicitly marked implemented in a future release note.
 
----
+## Architecture at a glance
 
-## 🚀 Key Features
+~~~text
+Android phone app / optional launcher / dedicated display
+                 |
+          MotoPilot Android Core
+                 |
+    +------------+-------------+
+    |            |             |
+ Core features  Mini-apps   Wear OS companion
+    |            |             |
+    +----- SDK / capability APIs
+                 |
+        Device abstraction layer
+                 |
+       MotoPilot Device Protocol
+                 |
+       BLE / USB / future transports
+                 |
+        Optional external hardware
+~~~
 
-### 🎙️ 1. AI Voice Co-Pilot ("Jarvis for Bikers")
-- **Wind-Noise Resistant Voice Pipeline:** Optimized for helmet microphones at highway speeds with wake-word detection and edge processing.
-- **Hands-Free Operation:** Control navigation, audio, group comms, and bike telemetry purely via voice.
-- **Contextual Audio Cues:** Proactive alerts for blind switchbacks, sudden weather changes, potholes, and speed traps.
+The Android application must work without hardware. The Wear OS application is optional and must not be required for phone functionality.
 
-### 🎮 2. MotoQuest: Screen-Free Real-World Gamification
-- **Audio-First Gameplay:** 100% eyes-on-the-road experience with 3D spatial helmet audio cues.
-- **Real-Life Obstacle Dodging:** IMU accelerometer measures smooth swerves around potholes vs. suspension shocks. Dodging cleanly = **+50 XP**; reporting new potholes logs civic bounty rewards!
-- **Territory Conquest & Apex Leaderboards:** Claim scenic passes and compete for smoothest cornering and lean angle consistency.
+## Documentation
 
-### 📡 3. 100% Offline Rider Mesh Network (Biker BitChat)
-- **Zero Cellular Dependency:** BLE 5.0 and Wi-Fi Direct gossip mesh keeps pack riders connected even in remote valleys.
-- **Offline Mesh Intercom & Presence:** Voice comms, proximity radar, and decentralized CRDT-based scoreboards sync seamlessly across bikes.
+### Product and architecture
+- [Product vision](docs/PRODUCT_VISION.md)
+- [System architecture](docs/architecture/SYSTEM_ARCHITECTURE.md)
+- [Android architecture](docs/architecture/ANDROID_ARCHITECTURE.md)
+- [Wear OS architecture](docs/architecture/WEAR_OS_ARCHITECTURE.md)
+- [Hardware abstraction](docs/architecture/HARDWARE_ABSTRACTION.md)
+- [Data flow and ownership](docs/architecture/DATA_FLOW.md)
 
-### 🩺 4. Healthcare & Biometric Telemetry
-- **Continuous Glucose (CGM) Integration:** Voice warnings for sudden hypoglycemia and energy dips (*"Warning: Glucose dipping below 70 mg/dL"*).
-- **Fatigue & Drowsiness Alert:** Analyzes Heart Rate Variability (HRV) and micro-movements to detect microsleeps before accidents happen.
-- **Crash eCall SOS with Live Vitals Payload:** Dispatches exact GPS coordinates alongside live pulse, SpO2, and consciousness status to first responders upon impact.
+### Features and developer platform
+- [Navigation and rider interaction](docs/features/NAVIGATION_AND_INTERACTION.md)
+- [Emergency detection and response](docs/features/EMERGENCY_RESPONSE.md)
+- [Mini-app runtime](docs/features/MINI_APP_RUNTIME.md)
+- [MotoPilot Device Protocol proposal](docs/protocol/DEVICE_PROTOCOL.md)
 
-### 🚨 5. Road Hazard & Highway Violation Reporting
-- **1-Click / Voice Video Capture:** Instant rolling-buffer dashcam bookmark with GPS timestamp and speed overlays.
-- **Automated Citizen Portal Export:** Generates formatted violation reports ready for traffic enforcement submission.
+### Trust, safety and delivery
+- [Privacy and security](docs/privacy/PRIVACY_AND_SECURITY.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Existing hardware specifications](docs/HARDWARE_SPECS.md)
+- [Existing telemetry concepts](docs/TELEMETRY_ARCHITECTURE.md)
+- [MotoQuest and mesh concepts](docs/MOTOQUEST_GAMIFICATION_AND_MESH.md)
 
----
+## Implementation status
 
-## 🏗️ System Architecture
+The current repository is an early-stage concept/specification repository. The Android app, Wear OS app, stable MDP release, mini-app runtime, emergency detection pipeline and reference hardware are not established as implemented by these documents.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                 Rider Input & Sensor Layer                  │
-│  ┌────────────────────────┐    ┌─────────────────────────┐  │
-│  │ Handlebar IoT Pod / PTT├─┐  │ Biometric Wearable (BLE)│  │
-│  │ • Push-to-Talk Button  │ │  │ • Optical BP & Glucose  │  │
-│  │ • 6-Axis IMU (Lean)    │ │  │ • Heart Rate & HRV      │  │
-│  └────────────────────────┘ │  └───────────┬─────────────┘  │
-│    ┌────────────────────────┘              │                │
-│    ▼                                       ▼                │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │ Helmet Bluetooth Headset (Audio-First In / Out)       │  │
-│  └──────────────────────────┬────────────────────────────┘  │
-└─────────────────────────────┼───────────────────────────────┘
-                              │ BLE / Audio Stream
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                     MotoPilot Core Engine                   │
-│                     (Mobile Background App)                 │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │ AI Voice Co-Pilot Pipeline & Wake-Word Engine         │  │
-│  ├───────────────────────────────────────────────────────┤  │
-│  │ MotoQuest Game Engine: Pothole Evaluator & Scoring    │  │
-│  ├───────────────────────────────────────────────────────┤  │
-│  │ Biometric Telemetry & Fatigue / Crash Monitor         │  │
-│  ├───────────────────────────────────────────────────────┤  │
-│  │ Offline P2P Mesh Engine (BitChat / CRDT Gossip)       │  │
-│  └───────────────────────────────────────────────────────┘  │
-└─────────────────────────────┬───────────────────────────────┘
-                              │
-            ┌─────────────────┴─────────────────┐
-            ▼                                   ▼
-┌─────────────────────────────┐   ┌─────────────────────────────┐
-│ Offline Pack Mesh Network   │   │ Cloud Hub & Civic Sync      │
-│ (BLE / Wi-Fi Direct)        │   │ (Syncs when online)         │
-│ • Intercom & Hazard Gossip  │   │ • Global Leaderboards       │
-│ • Pack Proximity Radar      │   │ • Traffic Violations & SOS  │
-└─────────────────────────────┘   └─────────────────────────────┘
-```
+Existing hardware, telemetry and MotoQuest documents are retained as design material. Proposed sensor integrations, algorithms, thresholds, performance claims and health-related measurements must be validated before being treated as achievable or production-ready. Ordinary phone/watch sensors do not provide medical-grade blood glucose or blood pressure measurements.
 
----
+Use these labels in future documentation and release notes:
+- **Implemented:** present in code and tested.
+- **In progress:** actively being implemented.
+- **Proposed:** designed but not implemented.
+- **Experimental:** prototype only; not validated for general use.
+- **Unavailable:** unsupported by current device or platform.
 
-## 📚 Documentation
+## Contributing
 
-- [Healthcare & Biometric Telemetry Architecture](docs/TELEMETRY_ARCHITECTURE.md)
-- [MotoQuest Gamification, Pothole Scoring & Offline Mesh](docs/MOTOQUEST_GAMIFICATION_AND_MESH.md)
-- [Hardware Specifications & Sensor Protocol](docs/HARDWARE_SPECS.md)
+Contributions should preserve software-first, hardware-optional and privacy-first principles. New device integrations should use documented abstractions and protocol contracts. Safety-related changes require test evidence, failure-mode analysis and clear user-facing limitations.
 
----
+## Licensing
 
-## 🛠️ Tech Stack
+The repository currently declares MIT licensing. The intended long-term licensing model for firmware, hardware, SDKs, applications and documentation has not been finalized. Do not assume proposed per-component licensing has been adopted. Any licensing migration requires compatibility and legal review.
 
-- **Mobile Application:** React Native / Flutter (Native Background Sensor Processing)
-- **Mesh Networking:** BLE 5.0 Mesh & Wi-Fi Aware P2P Protocols (CRDT Decentralized Sync)
-- **Hardware Firmware:** ESP32-S3 / C3 (C++ / Rust Embedded)
-- **Communications:** Bluetooth Low Energy (BLE 5.2), WebRTC, MQTT
-- **AI & Audio Engine:** Edge Speech-to-Text, LLM Voice Pipeline, 3D Spatial Audio
+## Disclaimer
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-
----
-
-
----
-
-## ⚡ Benchmarks & Load Testing (`wrk`)
-
-High-frequency telemetry ingestion benchmark for **MotoPilot Telemetry Ingestion Gateway** processing incoming IMU, TPMS, and biometric packets under **1,000 concurrent vehicle streams**:
-
-```bash
-wrk -t16 -c1000 -d30s -s scripts/telemetry_batch.lua https://api.motopilot.app/api/v1/telemetry/packet
-```
-
-### 📊 Benchmark Results (`POST /api/v1/telemetry/packet`)
-- **Throughput:** `28,412.80 requests/sec` (Total: 852,384 packets in 30s)
-- **TimescaleDB Ingestion Rate:** `~113,600 sensor metric points/sec`
-- **Error Rate:** `0.00%` (0 socket drops / 0 HTTP 5xx)
-
-| Metric | Latency (ms) | Target SLA | Status |
-| :--- | :---: | :---: | :---: |
-| **p50 (Median)** | `8.15 ms` | < 20 ms | ✅ PASSED |
-| **p90** | `19.40 ms` | < 40 ms | ✅ PASSED |
-| **p99** | `31.85 ms` | < 60 ms | ✅ PASSED |
-| **Max** | `52.30 ms` | < 100 ms | ✅ PASSED |
-
-## 📈 Repository Telemetry & Star History
-
-<div align="center">
-  <a href="https://star-history.com/#notdatkunal/motopilot&Date">
-    <img src="https://api.star-history.com/svg?repos=notdatkunal/motopilot&type=Date" alt="Star History Chart" width="700" />
-  </a>
-</div>
-
-
-## Planning Phase & Roadmap
-
-### Open Source Vision
-MotoPilot targets a highly passionate enthusiast niche at the intersection of DIY electronics, AI, and motorcycling. Our roadmap focuses on providing excellent documentation, wiring diagrams, and a clear bill of materials (BOM) to make it a staple project in the maker and IoT communities.
-
-### Compliance & Regulatory (India)
-To make MotoPilot fully functional and legally compliant in the Indian market:
-* **WPC ETA & BIS Certification:** The hardware (ESP32, BLE 5.2) will undergo Equipment Type Approval (ETA) from the Wireless Planning and Coordination (WPC) Wing and pass BIS safety standards.
-* **Telecom & eCall (TRAI/AIS-140):** Crash eCall functionalities utilizing cellular networks will be designed to comply with TRAI regulations and relevant automotive tracking standards.
-* **DPDP Act & CERT-In:** All telemetry data will follow strict data minimization and 180-day secure logging requirements.
-
+MotoPilot is a development project, not a certified vehicle system, medical device or emergency response service. Riders remain responsible for safe motorcycle operation and compliance with local laws. Do not interact with the screen while riding in a way that distracts from road conditions.
